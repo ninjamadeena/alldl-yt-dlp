@@ -32,7 +32,7 @@ def spinner_animation(stop_event, label):
 # ── ตรวจสอบโปรแกรมที่จำเป็น ──
 def check_requirements():
     print_ascii_title()
-    required_programs = ["yt-dlp", "ffmpeg"]
+    required_programs = ["python", "yt-dlp", "ffmpeg"]
     missing = []
 
     print("🔍 ตรวจสอบโปรแกรมที่จำเป็น...\n")
