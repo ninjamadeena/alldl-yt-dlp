@@ -2,6 +2,9 @@
 
 ## วิธีติดตั้ง
 ```
+pkg install git -y
+```
+```
 git clone https://github.com/ninjamadeena/alldl-yt-dlp.git
 ```
 ```
