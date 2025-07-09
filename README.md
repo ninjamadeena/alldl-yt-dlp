@@ -11,3 +11,9 @@ bash alldlinstall.sh
 ## รันให้
 
 alldl
+
+## วิธีแก้ไขและดูโค้ค
+
+nano $PREFIX/bin/alldl
+
+(โค้คไม่มีลิขสิทธิ์สามารถแก้ไขได้)
