@@ -14,6 +14,6 @@ alldl
 
 ## วิธีแก้ไขและดูโค้ค
 
-nano $PREFIX/bin/alldl
+nano $PREFIX/bin/alldl เฉพาะ Termux
 
 (โค้คไม่มีลิขสิทธิ์สามารถแก้ไขได้)
