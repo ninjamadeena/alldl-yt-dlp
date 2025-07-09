@@ -7,6 +7,7 @@ git clone https://github.com/ninjamadeena/alldl-yt-dlp.git
 ```
 cd alldl-yt-dlp
 ```
+```
 bash install.sh
 ```
 ## รันให้
