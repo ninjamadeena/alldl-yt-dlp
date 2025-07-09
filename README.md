@@ -10,7 +10,7 @@ cd alldl-yt-dlp
 ```
 bash install.sh
 ```
-## รันให้
+## รันใช้
 ```
 alldl
 ```
