@@ -5,7 +5,7 @@
 pkg install git -y
 ```
 ```
-termux-setup-storage -y
+termux-setup-storage
 ```
 ```
 git clone https://github.com/ninjamadeena/alldl-yt-dlp.git
