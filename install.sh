@@ -6,6 +6,7 @@ echo "🛠️ เริ่มติดตั้ง ALLDL..."
 
 # ตรวจสอบและติดตั้ง Python3
 if ! command -v python3 &>/dev/null; then
+    echo "❌ ไม่พบ Python3"
     echo "📦 ติดตั้ง Python3..."
     if command -v pkg &>/dev/null; then
         pkg install -y python
@@ -18,6 +19,7 @@ fi
 
 # ตรวจสอบและติดตั้ง pip3
 if ! command -v pip3 &>/dev/null; then
+    echo "❌ ไม่พบ pip3"
     echo "📦 ติดตั้ง pip3..."
     if command -v pkg &>/dev/null; then
         pkg install -y python-pip
@@ -30,6 +32,7 @@ fi
 
 # ตรวจสอบและติดตั้ง ffmpeg
 if ! command -v ffmpeg &>/dev/null; then
+    echo "❌ ไม่พบ ffmpeg"
     echo "📦 ติดตั้ง ffmpeg..."
     if command -v pkg &>/dev/null; then
         pkg install -y ffmpeg
@@ -42,6 +45,7 @@ fi
 
 # ตรวจสอบและติดตั้ง yt-dlp
 if ! command -v yt-dlp &>/dev/null; then
+    echo "❌ ไม่พบ yt-dlp"
     echo "📦 ติดตั้ง yt-dlp..."
     pip3 install -U yt-dlp
 else
