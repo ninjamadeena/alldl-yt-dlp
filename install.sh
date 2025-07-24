@@ -20,10 +20,10 @@ echo -e "╔══════════════════════�
 echo -e "║                 🎧 ${MAGENTA}ALLDL${CYAN}${BOLD}                  ║"
 echo -e "╚═══════════════════════════════════════════╝"
 echo -e "${RESET}"
-echo -e "${YELLOW}📦 โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
-echo -e "${YELLOW}👨‍💻 ผู้พัฒนา: ${GREEN}ninjamadeena${RESET}"
-echo -e "${YELLOW}🌐 GitHub ผู้พัฒนา: ${BLUE}https://github.com/ninjamadeena${RESET}"
-echo -e "${YELLOW}🌐 โครงการ ALLDL:   ${BLUE}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
+echo -e "${YELLOW}โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
+echo -e "${YELLOW}ผู้พัฒนา: ${GREEN}ninjamadeena${RESET}"
+echo -e "${YELLOW}GitHub ผู้พัฒนา: ${BLUE}https://github.com/ninjamadeena${RESET}"
+echo -e "${YELLOW}โครงการ ALLDL: ${BLUE}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
 sleep 5
 clear
 
