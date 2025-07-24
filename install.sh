@@ -2,53 +2,68 @@
 
 set -e
 
+# ───── กำหนดสี ─────
 GREEN="\033[0;32m"
 RED="\033[0;31m"
 YELLOW="\033[1;33m"
+CYAN="\033[1;36m"
+BOLD="\033[1m"
 RESET="\033[0m"
 
-echo -e "${YELLOW}🛠️ เริ่มติดตั้ง ALLDL...${RESET}"
+# ───── แสดงชื่อโปรแกรมและเครดิตก่อนติดตั้ง ────
+clear
+echo -e "${CYAN}${BOLD}"
+echo "╔═══════════════════════════════════════════╗"
+echo "║                 🎧 ALLDL                  ║"
+echo "╚═══════════════════════════════════════════╝"
+echo -e "${RESET}"
 
-# ----- Python3 -----
-if ! command -v python3 &>/dev/null; then
-    echo -e "${RED}❌ ไม่พบ Python3${RESET}"
-    echo -e "${YELLOW}📦 กำลังติดตั้ง Python3...${RESET}"
-    if command -v pkg &>/dev/null; then
-        pkg install -y python
+echo -e "${YELLOW} โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
+echo -e "${YELLOW} ผู้พัฒนา: ninjamadeena${RESET}"
+echo -e "${YELLOW} GitHub ผู้พัฒนา: ${CYAN}https://github.com/ninjamadeena${RESET}"
+echo -e "${YELLOW} GitHub: โครงการโอเพ่นซอร์ ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
+sleep 5
+
+# ───── เคลียร์หน้าจอก่อนเริ่มจริง ─────
+clear
+
+# ───── โลโก้หน้าติดตั้ง ─────
+echo -e "${CYAN}${BOLD}"
+echo "╔══════════════════════════════════════════════╗"
+echo "║             🚀 ALLDL INSTALLER               ║"
+echo "║     ดาวน์โหลดวิดีโอ/เสียงจาก yt-dlp ง่าย ๆ        ║"
+echo "╚══════════════════════════════════════════════╝"
+echo -e "${RESET}"
+
+echo -e "${YELLOW}🛠️  กำลังเริ่มการติดตั้ง ALLDL...${RESET}"
+echo ""
+
+# ───── ฟังก์ชันติดตั้ง ─────
+install_if_missing() {
+    local cmd="$1"
+    local pkg_termux="$2"
+    local pkg_linux="$3"
+    local name="$4"
+
+    if ! command -v "$cmd" &>/dev/null; then
+        echo -e "${RED}❌ ไม่พบ $name${RESET}"
+        echo -e "${YELLOW}📦 กำลังติดตั้ง $name...${RESET}"
+        if command -v pkg &>/dev/null; then
+            pkg install -y "$pkg_termux"
+        else
+            sudo apt update && sudo apt install -y "$pkg_linux"
+        fi
     else
-        sudo apt update && sudo apt install -y python3
+        echo -e "${GREEN}✅ พบ $name แล้ว${RESET}"
     fi
-else
-    echo -e "${GREEN}✅ พบ Python3 แล้ว${RESET}"
-fi
+}
 
-# ----- pip3 -----
-if ! command -v pip3 &>/dev/null; then
-    echo -e "${RED}❌ ไม่พบ pip3${RESET}"
-    echo -e "${YELLOW}📦 กำลังติดตั้ง pip3...${RESET}"
-    if command -v pkg &>/dev/null; then
-        pkg install -y python-pip
-    else
-        sudo apt install -y python3-pip
-    fi
-else
-    echo -e "${GREEN}✅ พบ pip3 แล้ว${RESET}"
-fi
+# ───── ตรวจสอบและติดตั้ง ─────
+install_if_missing python3 python python3 "Python3"
+install_if_missing pip3 python-pip python3-pip "pip3"
+install_if_missing ffmpeg ffmpeg ffmpeg "ffmpeg"
 
-# ----- ffmpeg -----
-if ! command -v ffmpeg &>/dev/null; then
-    echo -e "${RED}❌ ไม่พบ ffmpeg${RESET}"
-    echo -e "${YELLOW}📦 กำลังติดตั้ง ffmpeg...${RESET}"
-    if command -v pkg &>/dev/null; then
-        pkg install -y ffmpeg
-    else
-        sudo apt install -y ffmpeg
-    fi
-else
-    echo -e "${GREEN}✅ พบ ffmpeg แล้ว${RESET}"
-fi
-
-# ----- yt-dlp -----
+# ───── yt-dlp ─────
 if ! command -v yt-dlp &>/dev/null; then
     echo -e "${RED}❌ ไม่พบ yt-dlp${RESET}"
     echo -e "${YELLOW}📦 กำลังติดตั้ง yt-dlp...${RESET}"
@@ -57,28 +72,36 @@ else
     echo -e "${GREEN}✅ พบ yt-dlp แล้ว${RESET}"
 fi
 
-# ----- ตั้งค่าโปรแกรม -----
+# ───── ตั้งค่า alldl.py ─────
 SCRIPT_NAME="alldl.py"
 TARGET_BIN="$PREFIX/bin/alldl"
 
-echo -e "${YELLOW}⚙️ ตั้งค่าไฟล์ $SCRIPT_NAME ให้รันได้...${RESET}"
-chmod +x "$SCRIPT_NAME"
-mv "$SCRIPT_NAME" "$TARGET_BIN"
-echo -e "${GREEN}✅ตั้งค่าเรียบร้อยแล้ว${RESET}"
-# ----- ตรวจสอบอีกครั้ง -----
+if [ -f "$SCRIPT_NAME" ]; then
+    echo -e "\n${CYAN}⚙️  ตั้งค่า $SCRIPT_NAME ให้รันได้...${RESET}"
+    chmod +x "$SCRIPT_NAME"
+    mv "$SCRIPT_NAME" "$TARGET_BIN"
+    echo -e "${GREEN}✅ ติดตั้ง alldl ที่ $TARGET_BIN เรียบร้อยแล้ว${RESET}"
+else
+    echo -e "${RED}⚠️ ไม่พบไฟล์ $SCRIPT_NAME ในไดเรกทอรีนี้${RESET}"
+    exit 1
+fi
+
+# ───── ตรวจสอบหลังติดตั้ง ─────
 echo -e "\n${YELLOW}🔍 ตรวจสอบความสมบูรณ์หลังติดตั้ง...${RESET}"
 
 for cmd in python3 pip3 ffmpeg yt-dlp alldl; do
     if command -v "$cmd" &>/dev/null; then
-        echo -e "${GREEN}✅ ตรวจพบ $cmd พร้อมใช้งาน${RESET}"
+        echo -e "${GREEN}✅ $cmd พร้อมใช้งาน${RESET}"
     else
-        echo -e "${RED}❌ ไม่พบ $cmd กรุณาตรวจสอบการติดตั้งอีกครั้ง${RESET}"
+        echo -e "${RED}❌ ไม่พบ $cmd${RESET}"
     fi
 done
 
-# ----- จบ -----
-echo -e "\n${GREEN}🎉 ติดตั้งเสร็จสมบูรณ์!${RESET}"
-echo "📌 ใช้คำสั่ง: alldl เพื่อเริ่มใช้งาน"
+# ───── จบการติดตั้ง ─────
+echo -e "\n${GREEN}${BOLD}🎉 การติดตั้งเสร็จสมบูรณ์!${RESET}"
+echo -e "${CYAN}📌 พิมพ์คำสั่ง ${BOLD}alldl${RESET}${CYAN} เพื่อเริ่มใช้งาน${RESET}"
 
-# ลบโฟลเดอร์ติดตั้ง
+# ───── ล้างไฟล์ติดตั้ง ─────
+echo -e "\n${YELLOW}🧹 ลบไฟล์ติดตั้งชั่วคราว...${RESET}"
 rm -rf ~/alldl-yt-dlp
+echo -e "${GREEN}✅ ลบเรียบร้อย${RESET}"
