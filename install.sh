@@ -7,35 +7,35 @@ GREEN="\033[0;32m"
 RED="\033[0;31m"
 YELLOW="\033[1;33m"
 CYAN="\033[1;36m"
+MAGENTA="\033[1;35m"
+BLUE="\033[1;34m"
+WHITE="\033[1;37m"
 BOLD="\033[1m"
 RESET="\033[0m"
 
-# ───── แสดงชื่อโปรแกรมและเครดิตก่อนติดตั้ง ────
+# ───── หน้าแรก ─────
 clear
 echo -e "${CYAN}${BOLD}"
-echo "╔═══════════════════════════════════════════╗"
-echo "║                 🎧 ALLDL                  ║"
-echo "╚═══════════════════════════════════════════╝"
+echo -e "╔═══════════════════════════════════════════╗"
+echo -e "║                 🎧 ${MAGENTA}ALLDL${CYAN}${BOLD}                  ║"
+echo -e "╚═══════════════════════════════════════════╝"
 echo -e "${RESET}"
-
-echo -e "${YELLOW} โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
-echo -e "${YELLOW} ผู้พัฒนา: ${CYAN}ninjamadeena${RESET}"
-echo -e "${YELLOW} GitHub ผู้พัฒนา: ${CYAN}https://github.com/ninjamadeena${RESET}"
-echo -e "${YELLOW} GitHub โครงการโอเพ่นซอร์: ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
+echo -e "${YELLOW}📦 โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
+echo -e "${YELLOW}👨‍💻 ผู้พัฒนา: ${GREEN}ninjamadeena${RESET}"
+echo -e "${YELLOW}🌐 GitHub ผู้พัฒนา: ${BLUE}https://github.com/ninjamadeena${RESET}"
+echo -e "${YELLOW}🌐 โครงการ ALLDL:   ${BLUE}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
 sleep 5
-
 clear
 
-# ───── โลโก้หน้าติดตั้ง ─────
-echo -e "${CYAN}${BOLD}"
-echo "╔══════════════════════════════════════════════╗"
-echo "║             🚀 ALLDL INSTALLER               ║"
-echo "║          ดาวน์โหลดวิดีโอ/เสียงจาก yt-dlp         ║"
-echo "╚══════════════════════════════════════════════╝"
+# ───── แบนเนอร์ติดตั้ง ─────
+echo -e "${MAGENTA}${BOLD}"
+echo -e "╔════════════════════════════════════════════════╗"
+echo -e "║               🚀 เริ่มติดตั้ง ALLDL                 ║"
+echo -e "╠════════════════════════════════════════════════╣"
+echo -e "║   📥 ดาวน์โหลดวิดีโอ/เสียงจาก YouTube, TikTok ฯลฯ  ║"
+echo -e "╚════════════════════════════════════════════════╝"
 echo -e "${RESET}"
-
-echo -e "${YELLOW}🛠️  กำลังเริ่มการติดตั้ง ALLDL...${RESET}"
-echo ""
+sleep 1
 
 # ───── ฟังก์ชันติดตั้ง ─────
 install_if_missing() {
@@ -46,14 +46,14 @@ install_if_missing() {
 
     if ! command -v "$cmd" &>/dev/null; then
         echo -e "${RED}❌ ไม่พบ $name${RESET}"
-        echo -e "${YELLOW}📦 กำลังติดตั้ง $name...${RESET}"
+        echo -e "${YELLOW}⏳ ติดตั้ง $name...${RESET}"
         if command -v pkg &>/dev/null; then
             pkg install -y "$pkg_termux"
         else
             sudo apt update && sudo apt install -y "$pkg_linux"
         fi
     else
-        echo -e "${GREEN}✅ พบ $name แล้ว${RESET}"
+        echo -e "${GREEN}✅ $name พร้อมใช้งานแล้ว${RESET}"
     fi
 }
 
@@ -62,13 +62,13 @@ install_if_missing python3 python python3 "Python3"
 install_if_missing pip3 python-pip python3-pip "pip3"
 install_if_missing ffmpeg ffmpeg ffmpeg "ffmpeg"
 
-# ───── yt-dlp ─────
+# ───── ติดตั้ง yt-dlp ─────
 if ! command -v yt-dlp &>/dev/null; then
     echo -e "${RED}❌ ไม่พบ yt-dlp${RESET}"
-    echo -e "${YELLOW}📦 กำลังติดตั้ง yt-dlp...${RESET}"
+    echo -e "${YELLOW}📦 ติดตั้ง yt-dlp...${RESET}"
     pip3 install -U yt-dlp
 else
-    echo -e "${GREEN}✅ พบ yt-dlp แล้ว${RESET}"
+    echo -e "${GREEN}✅ yt-dlp ติดตั้งแล้ว${RESET}"
 fi
 
 # ───── ตั้งค่า alldl.py ─────
@@ -76,35 +76,46 @@ SCRIPT_NAME="alldl.py"
 TARGET_BIN="$PREFIX/bin/alldl"
 
 if [ -f "$SCRIPT_NAME" ]; then
-    echo -e "\n${CYAN}⚙️  ตั้งค่า $SCRIPT_NAME ให้รันได้...${RESET}"
+    echo -e "\n${CYAN}⚙️  ตั้งค่า alldl.py ให้รันได้...${RESET}"
     chmod +x "$SCRIPT_NAME"
     mv "$SCRIPT_NAME" "$TARGET_BIN"
-    echo -e "${GREEN}✅ ติดตั้ง alldl ที่ $TARGET_BIN เรียบร้อยแล้ว${RESET}"
+    echo -e "${GREEN}✅ ติดตั้ง alldl สำเร็จที่ ${WHITE}$TARGET_BIN${RESET}"
 else
     echo -e "${RED}⚠️ ไม่พบไฟล์ $SCRIPT_NAME ในไดเรกทอรีนี้${RESET}"
     exit 1
 fi
 
 # ───── ตรวจสอบหลังติดตั้ง ─────
-echo -e "\n${YELLOW}🔍 ตรวจสอบความสมบูรณ์หลังติดตั้ง...${RESET}"
+echo -e "\n${YELLOW}🔍 ตรวจสอบความสมบูรณ์ของคำสั่ง...${RESET}"
 
 for cmd in python3 pip3 ffmpeg yt-dlp alldl; do
     if command -v "$cmd" &>/dev/null; then
-        echo -e "${GREEN}✅ $cmd พร้อมใช้งาน${RESET}"
+        echo -e "${GREEN}✅ $cmd ตรวจพบ${RESET}"
     else
-        echo -e "${RED}❌ ไม่พบ $cmd${RESET}"
+        echo -e "${RED}❌ $cmd ไม่พบ${RESET}"
     fi
 done
-#───── ย้ายไฟล์ลบ ─────
-echo -e "\n${YELLOW}🧹 กำลังย้ายไฟล์ลบ...${RESET}"
-mv ~/alldl-yt-dlp/uninstallalldl.sh ~/
-echo -e "${GREEN}✅ ย้ายเรียบร้อย${RESET}"
 
-# ───── จบการติดตั้ง ─────
-echo -e "\n${GREEN}${BOLD}🎉 การติดตั้งเสร็จสมบูรณ์!${RESET}"
-echo -e "${GREEN}📌 พิมพ์คำสั่ง ${CYAN}alldl${RESET}${GREEN} เพื่อเริ่มใช้งาน${RESET}"
-echo -e "${GREEN}📌 พิมพ์คำสั่ง ${CYAN}bash uninstallalldl.sh ${GREEN}เพื่อลบโปรแกรมทุกอย่างออกจากระบบได้${RESET}"
-# ───── ล้างไฟล์ติดตั้ง ─────
-echo -e "\n${YELLOW}🧹 ลบไฟล์ติดตั้งชั่วคราว...${RESET}"
+# ───── ย้ายไฟล์ถอนการติดตั้ง ─────
+echo -e "\n${YELLOW}📦 ย้ายไฟล์ uninstallalldl.sh ไปที่ HOME...${RESET}"
+mv ~/alldl-yt-dlp/uninstallalldl.sh ~/
+echo -e "${GREEN}✅ ย้ายเรียบร้อยแล้ว${RESET}"
+
+# ───── ลบไฟล์โฟลเดอร์ชั่วคราว ─────
+echo -e "\n${YELLOW}🧹 ลบโฟลเดอร์ติดตั้ง alldl-yt-dlp...${RESET}"
 rm -rf ~/alldl-yt-dlp
-echo -e "${GREEN}✅ ลบเรียบร้อย${RESET}"
+echo -e "${GREEN}✅ ลบเสร็จสิ้น${RESET}"
+sleep 2
+
+# ───── หน้าติดตั้งเสร็จ ─────
+clear
+echo -e "${BOLD}${CYAN}"
+echo -e "╔════════════════════════════════════════════════╗"
+echo -e "║         🎉 ${MAGENTA}ALLDL INSTALL COMPLETE${CYAN} 🎉           ║"
+echo -e "╠════════════════════════════════════════════════╣"
+echo -e "║ ✅ ติดตั้งเสร็จสมบูรณ์ พร้อมใช้งานแล้ว!                 ║"
+echo -e "║ 🚀 เริ่มใช้งานด้วยคำสั่ง: ${GREEN}alldl${CYAN}                      ║"
+echo -e "║ 🧹 ลบโปรแกรม: ${RED}bash uninstallalldl.sh${CYAN}           ║"
+echo -e "║ 🎧 ขอบคุณที่ใช้โปรเจกต์โอเพ่นซอร์สจาก ninjamadeena    ║"
+echo -e "╚════════════════════════════════════════════════╝"
+echo -e "${RESET}"
