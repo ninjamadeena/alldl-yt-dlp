@@ -20,10 +20,16 @@ bash install.sh
 ```
 alldl
 ```
+## วิธีลบ alldl-yt-dlp ❗❗
+```
+bash uninstallalldl.sh
+```
 ## วิธีแก้ไขและดูโค้ค
 ```
-nano $PREFIX/bin/alldl 
+nano $PREFIX/bin/alldl
+```
+```
+nano uninstallalldl.sh
 ```
 เฉพาะ Termux
-
 (โค้คไม่มีลิขสิทธิ์สามารถแก้ไขได้)
