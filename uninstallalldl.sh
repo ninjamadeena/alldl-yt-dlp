@@ -84,3 +84,4 @@ for cmd in yt-dlp ffmpeg python3 alldl; do
 done
 
 echo -e "\n${GREEN}${BOLD}✅ การถอนการติดตั้งเสร็จสมบูรณ์!${RESET}"
+rm uninstallalldl.sh
