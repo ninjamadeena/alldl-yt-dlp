@@ -61,7 +61,6 @@ else
     echo -e "${CYAN}ℹ️    ไม่พบ alldl ใน $BIN_PATH${RESET}"
 fi
 
-# ───── ถอนทีละโปรแกรม ─────
 uninstall_program "yt-dlp" "" "" "yt-dlp (pip uninstall)"
 pip3 uninstall -y yt-dlp &>/dev/null || true
 [ ! "$(command -v yt-dlp)" ] && echo -e "${GREEN}✔️ yt-dlp ถูกลบแล้ว${RESET}" || echo -e "${RED}❌ yt-dlp ยังอยู่ในระบบ${RESET}"
