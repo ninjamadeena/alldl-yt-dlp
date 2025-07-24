@@ -24,7 +24,6 @@ echo -e "${YELLOW} GitHub ผู้พัฒนา: ${CYAN}https://github.com/ni
 echo -e "${YELLOW} GitHub โครงการโอเพ่นซอร์: ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
 sleep 5
 
-# ───── เคลียร์หน้าจอก่อนเริ่มจริง ─────
 clear
 
 # ───── โลโก้หน้าติดตั้ง ─────
