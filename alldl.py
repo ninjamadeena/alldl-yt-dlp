@@ -9,7 +9,7 @@ import itertools
 import sys
 
 # ── ASCII ART ──
-clear
+os.system('clear')
 def print_ascii_title():
     print(r"""
  █████╗ ██╗     ██╗     ██████╗ ██╗
