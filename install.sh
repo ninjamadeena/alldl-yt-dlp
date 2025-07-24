@@ -96,11 +96,15 @@ for cmd in python3 pip3 ffmpeg yt-dlp alldl; do
         echo -e "${RED}❌ ไม่พบ $cmd${RESET}"
     fi
 done
+#───── ย้ายไฟล์ลบ ─────
+echo -e "\n${YELLOW}🧹 กำลังย้ายไฟล์ลบ...${RESET}"
+mv ~/alldl-yt-dlp/uninstallalldl.sh ~/
+echo -e "${GREEN}✅ ย้ายเรียบร้อย${RESET}"
 
 # ───── จบการติดตั้ง ─────
 echo -e "\n${GREEN}${BOLD}🎉 การติดตั้งเสร็จสมบูรณ์!${RESET}"
 echo -e "${CYAN}📌 พิมพ์คำสั่ง ${BOLD}alldl${RESET}${CYAN} เพื่อเริ่มใช้งาน${RESET}"
-
+echo -e "${GREEN}📌 พิมพ์คำสั่ง bash uninstallalldl.sh เพื่อลบโปรแกรมทุกอย่างออกจากระบบได้${RESET}"
 # ───── ล้างไฟล์ติดตั้ง ─────
 echo -e "\n${YELLOW}🧹 ลบไฟล์ติดตั้งชั่วคราว...${RESET}"
 rm -rf ~/alldl-yt-dlp
