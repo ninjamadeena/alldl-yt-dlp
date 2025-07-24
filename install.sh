@@ -21,7 +21,7 @@ echo -e "${RESET}"
 echo -e "${YELLOW} โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
 echo -e "${YELLOW} ผู้พัฒนา: ninjamadeena${RESET}"
 echo -e "${YELLOW} GitHub ผู้พัฒนา: ${CYAN}https://github.com/ninjamadeena${RESET}"
-echo -e "${YELLOW} GitHub โครงการโอเพ่นซอร์; ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
+echo -e "${YELLOW} GitHub โครงการโอเพ่นซอร์: ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
 sleep 5
 
 # ───── เคลียร์หน้าจอก่อนเริ่มจริง ─────
@@ -31,7 +31,7 @@ clear
 echo -e "${CYAN}${BOLD}"
 echo "╔══════════════════════════════════════════════╗"
 echo "║             🚀 ALLDL INSTALLER               ║"
-echo "║     ดาวน์โหลดวิดีโอ/เสียงจาก yt-dlp            ║"
+echo "║     ดาวน์โหลดวิดีโอ/เสียงจาก yt-dlp             ║"
 echo "╚══════════════════════════════════════════════╝"
 echo -e "${RESET}"
 
