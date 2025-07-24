@@ -24,7 +24,7 @@ def print_ascii_title():
     print("👨‍💻 ผู้พัฒนา: ninjamadeena")
     print("🌐 GitHub ผู้พัฒนา: https://github.com/ninjamadeena")
     print("🌐 โครงการ ALLDL:   https://github.com/ninjamadeena/alldl-yt-dlp")
-    
+    print("")
 # ── ตัวหมุนขณะเช็คโปรแกรม ──
 def spinner_animation(stop_event, label):
     spinner = itertools.cycle(['/', '-', '\\', '|'])
