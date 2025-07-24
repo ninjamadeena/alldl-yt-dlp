@@ -19,7 +19,7 @@ echo "╚═══════════════════════�
 echo -e "${RESET}"
 
 echo -e "${YELLOW} โครงการโอเพ่นซอร์สดาวน์โหลดเสียง/วิดีโอผ่าน yt-dlp${RESET}"
-echo -e "${YELLOW} ผู้พัฒนา: ninjamadeena${RESET}"
+echo -e "${YELLOW} ผู้พัฒนา: ${CYAN}ninjamadeena${RESET}"
 echo -e "${YELLOW} GitHub ผู้พัฒนา: ${CYAN}https://github.com/ninjamadeena${RESET}"
 echo -e "${YELLOW} GitHub โครงการโอเพ่นซอร์: ${CYAN}https://github.com/ninjamadeena/alldl-yt-dlp${RESET}"
 sleep 5
