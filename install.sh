@@ -104,7 +104,7 @@ echo -e "${GREEN}✅ ย้ายเรียบร้อย${RESET}"
 # ───── จบการติดตั้ง ─────
 echo -e "\n${GREEN}${BOLD}🎉 การติดตั้งเสร็จสมบูรณ์!${RESET}"
 echo -e "${CYAN}📌 พิมพ์คำสั่ง ${BOLD}alldl${RESET}${CYAN} เพื่อเริ่มใช้งาน${RESET}"
-echo -e "${GREEN}📌 พิมพ์คำสั่ง bash uninstallalldl.sh เพื่อลบโปรแกรมทุกอย่างออกจากระบบได้${RESET}"
+echo -e "${GREEN}📌 พิมพ์คำสั่ง ${CYAN}bash uninstallalldl.sh ${GREEN}เพื่อลบโปรแกรมทุกอย่างออกจากระบบได้${RESET}"
 # ───── ล้างไฟล์ติดตั้ง ─────
 echo -e "\n${YELLOW}🧹 ลบไฟล์ติดตั้งชั่วคราว...${RESET}"
 rm -rf ~/alldl-yt-dlp
