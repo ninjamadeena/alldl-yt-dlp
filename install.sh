@@ -105,7 +105,7 @@ echo -e "${GREEN}✅ ย้ายเรียบร้อยแล้ว${RESET}
 echo -e "\n${YELLOW}🧹 ลบโฟลเดอร์ติดตั้ง alldl-yt-dlp...${RESET}"
 rm -rf ~/alldl-yt-dlp
 echo -e "${GREEN}✅ ลบเสร็จสิ้น${RESET}"
-sleep 2
+sleep 5
 
 # ───── หน้าติดตั้งเสร็จ ─────
 clear
