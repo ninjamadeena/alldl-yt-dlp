@@ -2,20 +2,8 @@
 
 ## วิธีติดตั้ง
 ```
-pkg install git -y
-```
-```
-termux-setup-storage
-```
-```
-git clone https://github.com/ninjamadeena/alldl-yt-dlp.git
-```
-```
-cd alldl-yt-dlp
-```
-```
-bash install.sh
-```
+cd && pkg install git -y && termux-setup-storage && git clone https://github.com/ninjamadeena/alldl-yt-dlp.git && cd alldl-yt-dlp && bash install.sh && cd
+,,,
 ## รันใช้
 ```
 alldl
